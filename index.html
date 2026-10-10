@@ -52,8 +52,6 @@
             justify-content: space-between;
             position: relative;
             box-shadow: inset 0 0 60px var(--shadow-color);
-            
-            /* Artistic Glorious Gold Border Style */
             border: 10px solid transparent;
             border-image: linear-gradient(135deg, var(--gold-light), var(--gold-glorious), var(--gold-dark), var(--gold-deep)) 1;
             overflow: hidden;
@@ -226,7 +224,6 @@
             backface-visibility: hidden;
         }
 
-        /* Custom Scrollbar for Page Content */
         .verse-page::-webkit-scrollbar {
             width: 4px;
         }
@@ -235,7 +232,6 @@
             border-radius: 2px;
         }
 
-        /* Page Flip Animation Classes */
         .flip-left {
             transform: rotateY(-90deg) translateX(-50px);
             opacity: 0;
@@ -273,7 +269,6 @@
             text-align: left;
         }
 
-        /* Focus Mode Classes */
         .focus-mode .arabic-text {
             text-align: center;
             font-size: 2.3rem;
@@ -289,7 +284,6 @@
             padding: 15px 0;
         }
 
-        /* Navigation Footer Buttons */
         .page-nav {
             display: flex;
             justify-content: space-between;
@@ -322,6 +316,7 @@
             color: var(--gold-primary);
             font-weight: 600;
             margin: auto;
+            padding: 20px;
         }
     </style>
 </head>
@@ -344,7 +339,6 @@
                 <span>•</span>
                 <span>83 Ayat</span>
             </div>
-            <!-- Developer tag with Live Streaming Dot Indicator -->
             <div class="developer-container">
                 <div class="live-indicator"></div>
                 <div class="developer-tag">developer : fatur62</div>
@@ -359,7 +353,7 @@
 
         <!-- Page Flip Viewport -->
         <main class="verse-viewport" id="verseViewport">
-            <div class="status-message">Memuat lembaran halaman...</div>
+            <div class="status-message" id="statusMessage">Memuat lembaran Surah Yasin...</div>
         </main>
 
         <!-- Navigation Buttons -->
@@ -379,14 +373,17 @@
 
         function playPaperFlipSound() {
             try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                
                 if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    audioCtx = new AudioContext();
                 }
                 if (audioCtx.state === 'suspended') {
                     audioCtx.resume();
                 }
 
-                const bufferSize = audioCtx.sampleRate * 0.18;
+                const bufferSize = audioCtx.sampleRate * 0.15;
                 const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
                 const data = buffer.getChannelData(0);
                 
@@ -399,12 +396,12 @@
 
                 const filter = audioCtx.createBiquadFilter();
                 filter.type = 'bandpass';
-                filter.frequency.setValueAtTime(1200, audioCtx.currentTime);
-                filter.Q.setValueAtTime(3, audioCtx.currentTime);
+                filter.frequency.setValueAtTime(1000, audioCtx.currentTime);
+                filter.Q.setValueAtTime(2, audioCtx.currentTime);
 
                 const gainNode = audioCtx.createGain();
-                gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.18);
+                gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
 
                 noise.connect(filter);
                 filter.connect(gainNode);
@@ -412,22 +409,59 @@
 
                 noise.start();
             } catch (e) {
-                console.log('Audio Context error:', e);
+                // Ignore audio autoplay restrictions
             }
         }
 
-        async function loadSurahYasin() {
+        async function fetchSurahData() {
+            // Primary API
             try {
-                const response = await fetch('https://equran.id/api/v2/surat/36');
-                if (!response.ok) throw new Error('Gagal mengambil data');
-                const jsonResult = await response.json();
+                const res = await fetch('https://equran.id/api/v2/surat/36');
+                if (res.ok) {
+                    const json = await res.json();
+                    if (json && json.data && Array.isArray(json.data.ayat)) {
+                        return json.data.ayat.map(item => ({
+                            nomorAyat: item.nomorAyat,
+                            teksArab: item.teksArab,
+                            teksIndonesia: item.teksIndonesia
+                        }));
+                    }
+                }
+            } catch (err) {
+                console.warn('API Utama gagal, mencoba API Cadangan...', err);
+            }
 
-                if (!jsonResult || !jsonResult.data || !Array.isArray(jsonResult.data.ayat)) {
-                    throw new Error('Format data tidak valid');
+            // Fallback API (Al-Quran Cloud)
+            try {
+                const resFallback = await fetch('https://api.alquran.cloud/v1/surah/36/editions/quran-uthmani,id.indonesian');
+                if (resFallback.ok) {
+                    const jsonFb = await resFallback.json();
+                    if (jsonFb && jsonFb.data && jsonFb.data.length >= 2) {
+                        const arAyahs = jsonFb.data[0].ayahs;
+                        const idAyahs = jsonFb.data[1].ayahs;
+                        return arAyahs.map((item, index) => ({
+                            nomorAyat: item.numberInSurah,
+                            teksArab: item.text,
+                            teksIndonesia: idAyahs[index] ? idAyahs[index].text : ''
+                        }));
+                    }
+                }
+            } catch (err) {
+                console.error('API Cadangan juga gagal:', err);
+            }
+
+            throw new Error('Gagal mengambil data ayat dari seluruh server');
+        }
+
+        async function initSurahYasin() {
+            const statusMsg = document.getElementById('statusMessage');
+            try {
+                const ayatData = await fetchSurahData();
+                if (!ayatData || ayatData.length === 0) {
+                    throw new Error('Data ayat kosong');
                 }
 
-                allAyat = jsonResult.data.ayat;
-                
+                allAyat = ayatData;
                 pagesData = [];
                 for (let i = 0; i < allAyat.length; i += AYAT_PER_HALAMAN) {
                     pagesData.push(allAyat.slice(i, i + AYAT_PER_HALAMAN));
@@ -436,7 +470,10 @@
                 renderCurrentPage(0, 'right');
             } catch (error) {
                 console.error(error);
-                document.getElementById('verseViewport').innerHTML = `<div class="status-message" style="color: #FF6B6B;">Gagal memuat ayat. Periksa koneksi internet.</div>`;
+                if (statusMsg) {
+                    statusMsg.style.color = '#FF6B6B';
+                    statusMsg.innerText = 'Gagal memuat ayat. Silakan periksa koneksi internet atau muat ulang halaman.';
+                }
             }
         }
 
@@ -540,8 +577,8 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            loadSurahYasin();
+        window.addEventListener('load', () => {
+            initSurahYasin();
         });
     </script>
 </body>
