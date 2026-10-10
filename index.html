@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Surah Yasin - Klasik Islami Mewah</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,36 +25,34 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        body {
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
             background-color: #1E1815;
             font-family: 'Crimson Pro', serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            overflow-x: hidden;
         }
 
-        /* App Container / Luxury Artistic Frame */
+        /* Fullscreen Mobile Viewport Application */
         .app-card {
             background-color: var(--bg-parchment);
             background-image: radial-gradient(#E8E2CE 1.2px, transparent 1.2px);
             background-size: 18px 18px;
-            width: 100%;
-            max-width: 850px;
-            min-height: 92vh;
-            padding: 45px 35px;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            padding: 15px 12px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 70px var(--shadow-color);
+            box-shadow: inset 0 0 50px var(--shadow-color);
             
             /* Artistic Luxury Gold Border Style */
-            border: 14px solid transparent;
+            border: 10px solid transparent;
             border-image: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark), var(--gold-deep)) 1;
             overflow: hidden;
         }
@@ -83,189 +81,255 @@
             100% { transform: translateY(100%) rotate(30deg); }
         }
 
-        /* Inner Decorative Border Frame */
-        .inner-frame {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            bottom: 10px;
-            border: 2px solid var(--gold-primary);
-            pointer-events: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
         /* Corner Arabesque Ornaments */
         .corner-ornament {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 26px;
+            height: 26px;
             border: 3px solid var(--gold-dark);
             z-index: 2;
+            pointer-events: none;
         }
-        .corner-tl { top: 6px; left: 6px; border-right: none; border-bottom: none; }
-        .corner-tr { top: 6px; right: 6px; border-left: none; border-bottom: none; }
-        .corner-bl { bottom: 6px; left: 6px; border-right: none; border-top: none; }
-        .corner-br { bottom: 6px; right: 6px; border-left: none; border-top: none; }
+        .corner-tl { top: 4px; left: 4px; border-right: none; border-bottom: none; }
+        .corner-tr { top: 4px; right: 4px; border-left: none; border-bottom: none; }
+        .corner-bl { bottom: 4px; left: 4px; border-right: none; border-top: none; }
+        .corner-br { bottom: 4px; right: 4px; border-left: none; border-top: none; }
 
         /* Header Styles */
         .header {
             text-align: center;
             border-bottom: 2px solid var(--gold-primary);
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+            padding-bottom: 8px;
+            margin-bottom: 6px;
             position: relative;
             z-index: 3;
         }
 
         .header-title {
             font-family: 'Amiri', serif;
-            font-size: 3rem;
+            font-size: 2.1rem;
             color: var(--gold-deep);
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), 0 0 10px rgba(197, 160, 89, 0.5);
-            margin-bottom: 5px;
+            margin-bottom: 2px;
         }
 
         .header-meta {
-            font-size: 1.15rem;
+            font-size: 0.9rem;
             color: #5D4037;
             font-weight: 600;
             display: flex;
             justify-content: center;
-            gap: 15px;
-            letter-spacing: 0.5px;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
+        /* Developer Tag with Live Streaming Indicator */
+        .developer-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 2px;
+        }
+
+        .live-indicator {
+            width: 7px;
+            height: 7px;
+            background-color: #2E7D32;
+            border-radius: 50%;
+            box-shadow: 0 0 0 rgba(46, 125, 50, 0.4);
+            animation: pulseLive 1.5s infinite;
+        }
+
+        @keyframes pulseLive {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(46, 125, 50, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+            }
+        }
+
+        .developer-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: lowercase;
+            letter-spacing: 1.5px;
+            background: linear-gradient(180deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.7), 1px 1px 2px rgba(62, 39, 35, 0.6);
         }
 
         /* Controls / Toggle */
         .controls {
             display: flex;
-            justify-content: flex-end;
-            margin-bottom: 15px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
             z-index: 3;
+            padding: 0 4px;
+        }
+
+        .nav-info {
+            font-size: 0.9rem;
+            color: var(--gold-deep);
+            font-weight: 700;
         }
 
         .btn-toggle {
             background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
             color: #1A1A1A;
             border: 1px solid var(--gold-dark);
-            padding: 8px 18px;
+            padding: 5px 12px;
             font-family: 'Crimson Pro', serif;
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 700;
             border-radius: 4px;
             cursor: pointer;
-            box-shadow: 0 3px 6px var(--shadow-color);
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px var(--shadow-color);
         }
 
-        .btn-toggle:hover {
-            filter: brightness(1.1);
-            transform: translateY(-1px);
-        }
-
-        /* Content Container */
-        .verse-container {
+        /* Page Flip / Curl Container */
+        .verse-viewport {
             flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            perspective: 1200px;
+        }
+
+        .verse-page {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.35);
+            border: 1px dashed rgba(197, 160, 89, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 25px;
-            overflow-y: auto;
-            max-height: 55vh;
-            padding-right: 12px;
-            padding-left: 5px;
-            z-index: 3;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.6s ease;
+            backface-visibility: hidden;
         }
 
-        /* Scrollbar Styling */
-        .verse-container::-webkit-scrollbar {
-            width: 6px;
+        /* Custom Scrollbar for Page Content */
+        .verse-page::-webkit-scrollbar {
+            width: 4px;
         }
-        .verse-container::-webkit-scrollbar-thumb {
+        .verse-page::-webkit-scrollbar-thumb {
             background: var(--gold-primary);
-            border-radius: 3px;
+            border-radius: 2px;
+        }
+
+        /* Page Flip Animation Classes */
+        .flip-left {
+            transform: rotateY(-90deg) translateX(-50px);
+            opacity: 0;
+        }
+
+        .flip-right {
+            transform: rotateY(90deg) translateX(50px);
+            opacity: 0;
         }
 
         .verse-item {
-            border-bottom: 1px dashed rgba(197, 160, 89, 0.6);
-            padding-bottom: 18px;
-            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+            padding-bottom: 12px;
+        }
+
+        .verse-item:last-child {
+            border-bottom: none;
         }
 
         .arabic-text {
             font-family: 'Amiri', serif;
-            font-size: 2.3rem;
+            font-size: 2rem;
             color: var(--text-arabic);
             text-align: right;
             line-height: 2.3;
             direction: rtl;
-            margin-bottom: 10px;
-            text-shadow: 0 0 1px rgba(0,0,0,0.1);
+            margin-bottom: 8px;
         }
 
         .translation-text {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-latin);
-            line-height: 1.6;
+            line-height: 1.5;
             text-align: left;
         }
 
         /* Focus Mode Classes */
         .focus-mode .arabic-text {
             text-align: center;
-            font-size: 2.8rem;
-            margin: 25px 0;
+            font-size: 2.3rem;
+            margin-bottom: 0;
         }
 
         .focus-mode .translation-text {
             display: none;
         }
 
-        /* Loading & Error States */
-        .status-message {
+        .focus-mode .verse-item {
             text-align: center;
-            font-size: 1.2rem;
-            color: var(--gold-deep);
-            margin-top: 50px;
-            font-weight: 600;
+            padding: 15px 0;
         }
 
-        /* Footer & Engraved 3D Developer Text */
-        .footer {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 2px solid var(--gold-primary);
+        /* Navigation Footer Buttons */
+        .page-nav {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            position: relative;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 8px;
             z-index: 3;
         }
 
-        .developer-tag {
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: lowercase;
-            letter-spacing: 2px;
-            background: linear-gradient(180deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.7), 1px 1px 2px rgba(62, 39, 35, 0.6);
-            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+        .btn-nav {
+            flex: 1;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: #FFF;
+            border: none;
+            padding: 9px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 3px 6px var(--shadow-color);
+        }
+
+        .btn-nav:active {
+            filter: brightness(0.9);
+        }
+
+        .status-message {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--gold-deep);
+            font-weight: 600;
+            margin: auto;
         }
     </style>
 </head>
 <body>
 
     <div class="app-card" id="appCard">
-        <!-- Corner Ornaments for Artistic Touch -->
+        <!-- Corner Ornaments -->
         <div class="corner-ornament corner-tl"></div>
         <div class="corner-ornament corner-tr"></div>
         <div class="corner-ornament corner-bl"></div>
         <div class="corner-ornament corner-br"></div>
-        <div class="inner-frame"></div>
 
         <!-- Header -->
         <header class="header">
@@ -277,89 +341,210 @@
                 <span>•</span>
                 <span>83 Ayat</span>
             </div>
+            <!-- Developer tag with Live Streaming Dot Indicator -->
+            <div class="developer-container">
+                <div class="live-indicator"></div>
+                <div class="developer-tag">developer : fatur62</div>
+            </div>
         </header>
 
         <!-- Controls -->
         <div class="controls">
+            <span class="nav-info" id="navInfo">Halaman 1 / -</span>
             <button class="btn-toggle" id="toggleBtn" onclick="toggleTranslation()">Sembunyikan Terjemahan</button>
         </div>
 
-        <!-- Main Content -->
-        <main class="verse-container" id="verseContainer">
-            <div class="status-message">Memuat ayat-ayat Surah Yasin...</div>
+        <!-- Page Flip Viewport -->
+        <main class="verse-viewport" id="verseViewport">
+            <div class="status-message">Memuat lembaran halaman...</div>
         </main>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="developer-tag">developer : fatur62</div>
-        </footer>
+        <!-- Navigation Buttons -->
+        <div class="page-nav">
+            <button class="btn-nav" onclick="prevPage()">❮ Sebelumnya</button>
+            <button class="btn-nav" onclick="nextPage()">Selanjutnya ❯</button>
+        </div>
     </div>
 
     <script>
-        // State Management
+        let allAyat = [];
+        let pagesData = [];
+        let currentPageIndex = 0;
         let showTranslation = true;
+        let audioCtx = null;
+        const AYAT_PER_HALAMAN = 5; // Jumlah ayat per lembar halaman
 
-        // Fetching Data Surah Yasin (36) dari API Kemenag / Equran.id (Validasi Aman)
-        async function loadSurahYasin() {
-            const container = document.getElementById('verseContainer');
+        // Efek Suara Gesekan Kertas Realistis (Web Audio API)
+        function playPaperFlipSound() {
             try {
-                const response = await fetch('https://equran.id/api/v2/surat/36');
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+
+                const bufferSize = audioCtx.sampleRate * 0.18;
+                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const data = buffer.getChannelData(0);
                 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
                 }
 
-                const jsonResult = await response.json();
+                const noise = audioCtx.createBufferSource();
+                noise.buffer = buffer;
 
-                // Safety validation parsing JSON
-                if (!jsonResult || !jsonResult.data || !Array.isArray(jsonResult.data.ayat)) {
-                    throw new Error('Format data JSON tidak sesuai struktur.');
-                }
+                const filter = audioCtx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.setValueAtTime(1200, audioCtx.currentTime);
+                filter.Q.setValueAtTime(3, audioCtx.currentTime);
 
-                renderAyat(jsonResult.data.ayat);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-                container.innerHTML = `<div class="status-message" style="color: #D32F2F;">Gagal memuat data ayat. Silakan coba lagi nanti.</div>`;
+                const gainNode = audioCtx.createGain();
+                gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.18);
+
+                noise.connect(filter);
+                filter.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                noise.start();
+            } catch (e) {
+                console.log('Audio Context error:', e);
             }
         }
 
-        // Render Ayat ke DOM
-        function renderAyat(ayatList) {
-            const container = document.getElementById('verseContainer');
-            container.innerHTML = '';
+        // Fetching Data Surah Yasin (36)
+        async function loadSurahYasin() {
+            try {
+                const response = await fetch('https://equran.id/api/v2/surat/36');
+                if (!response.ok) throw new Error('Gagal mengambil data');
+                const jsonResult = await response.json();
 
-            ayatList.forEach(ayat => {
+                if (!jsonResult || !jsonResult.data || !Array.isArray(jsonResult.data.ayat)) {
+                    throw new Error('Format data tidak valid');
+                }
+
+                allAyat = jsonResult.data.ayat;
+                
+                // Kelompokkan ayat menjadi beberapa halaman (chunking)
+                pagesData = [];
+                for (let i = 0; i < allAyat.length; i += AYAT_PER_HALAMAN) {
+                    pagesData.push(allAyat.slice(i, i + AYAT_PER_HALAMAN));
+                }
+
+                renderCurrentPage(0, 'right');
+            } catch (error) {
+                console.error(error);
+                document.getElementById('verseViewport').innerHTML = `<div class="status-message" style="color: #D32F2F;">Gagal memuat ayat. Periksa koneksi internet.</div>`;
+            }
+        }
+
+        // Render Halaman dengan Sekelompok Ayat
+        function renderCurrentPage(pageIndex, direction) {
+            if (pagesData.length === 0) return;
+            currentPageIndex = pageIndex;
+
+            const viewport = document.getElementById('verseViewport');
+            const navInfo = document.getElementById('navInfo');
+            navInfo.innerText = `Halaman ${currentPageIndex + 1} / ${pagesData.length}`;
+
+            const currentAyatList = pagesData[currentPageIndex];
+
+            const pageDiv = document.createElement('div');
+            pageDiv.className = `verse-page ${direction === 'right' ? 'flip-right' : 'flip-left'} ${showTranslation ? '' : 'focus-mode'}`;
+            pageDiv.id = 'activeVersePage';
+
+            let contentHTML = '';
+            currentAyatList.forEach(ayat => {
                 const nomorAyat = ayat.nomorAyat || '';
                 const teksArab = ayat.teksArab || '';
                 const teksIndonesia = ayat.teksIndonesia || '';
 
-                const verseItem = document.createElement('div');
-                verseItem.className = 'verse-item';
-                verseItem.innerHTML = `
-                    <div class="arabic-text">${teksArab} ﴿${nomorAyat}﴾</div>
-                    <div class="translation-text">${nomorAyat}. ${teksIndonesia}</div>
+                contentHTML += `
+                    <div class="verse-item">
+                        <div class="arabic-text">${teksArab} ﴿${nomorAyat}﴾</div>
+                        <div class="translation-text"><strong>${nomorAyat}.</strong> ${teksIndonesia}</div>
+                    </div>
                 `;
-                container.appendChild(verseItem);
             });
+
+            pageDiv.innerHTML = contentHTML;
+            viewport.innerHTML = '';
+            viewport.appendChild(pageDiv);
+
+            // Trigger reflow untuk animasi masuk
+            setTimeout(() => {
+                pageDiv.classList.remove('flip-right', 'flip-left');
+            }, 20);
         }
 
-        // Feature Toggle Terjemahan & Focus Mode
+        function nextPage() {
+            if (currentPageIndex < pagesData.length - 1) {
+                playPaperFlipSound();
+                animateFlipAndSwitch(currentPageIndex + 1, 'right');
+            }
+        }
+
+        function prevPage() {
+            if (currentPageIndex > 0) {
+                playPaperFlipSound();
+                animateFlipAndSwitch(currentPageIndex - 1, 'left');
+            }
+        }
+
+        function animateFlipAndSwitch(newPageIndex, dir) {
+            const currentPage = document.getElementById('activeVersePage');
+            if (currentPage) {
+                currentPage.classList.add(dir === 'right' ? 'flip-left' : 'flip-right');
+            }
+            setTimeout(() => {
+                renderCurrentPage(newPageIndex, dir);
+            }, 300);
+        }
+
+        // Toggle Terjemahan & Focus Mode
         function toggleTranslation() {
             const appCard = document.getElementById('appCard');
             const toggleBtn = document.getElementById('toggleBtn');
+            const activePage = document.getElementById('activeVersePage');
             
             showTranslation = !showTranslation;
 
             if (showTranslation) {
                 appCard.classList.remove('focus-mode');
+                if (activePage) activePage.classList.remove('focus-mode');
                 toggleBtn.innerText = 'Sembunyikan Terjemahan';
             } else {
                 appCard.classList.add('focus-mode');
+                if (activePage) activePage.classList.add('focus-mode');
                 toggleBtn.innerText = 'Tampilkan Terjemahan';
             }
         }
 
-        // Inisialisasi saat Halaman Dimuat
+        // Touch Swipe Gesture Support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextPage();
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevPage();
+            }
+        }
+
+        // Inisialisasi Aplikasi
         document.addEventListener('DOMContentLoaded', () => {
             loadSurahYasin();
         });
