@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Surah Yasin - Klasik Islami Mewah</title>
+    <title>Yasin Glorious Emerald Edition</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,14 +11,16 @@
     
     <style>
         :root {
-            --bg-parchment: #F5F1E3;
-            --gold-light: #F4E0A5;
-            --gold-primary: #C5A059;
-            --gold-dark: #8A6D29;
-            --gold-deep: #5A4419;
-            --shadow-color: rgba(62, 39, 35, 0.3);
-            --text-arabic: #1A1A1A;
-            --text-latin: #2C2C2C;
+            --bg-dark-emerald: #0B2B1B;
+            --bg-parchment-green: #0E3522;
+            --gold-light: #F8E49A;
+            --gold-primary: #E5C158;
+            --gold-glorious: #D4AF37;
+            --gold-dark: #9A7B1C;
+            --gold-deep: #5E4A0F;
+            --shadow-color: rgba(3, 15, 9, 0.6);
+            --text-arabic: #FDF0CD;
+            --text-latin: #E0EADF;
         }
 
         * {
@@ -32,14 +34,14 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #1E1815;
+            background-color: #05140C;
             font-family: 'Crimson Pro', serif;
         }
 
         /* Fullscreen Mobile Viewport Application */
         .app-card {
-            background-color: var(--bg-parchment);
-            background-image: radial-gradient(#E8E2CE 1.2px, transparent 1.2px);
+            background-color: var(--bg-parchment-green);
+            background-image: radial-gradient(#14482E 1.2px, transparent 1.2px);
             background-size: 18px 18px;
             width: 100vw;
             height: 100vh;
@@ -49,11 +51,11 @@
             flex-direction: column;
             justify-content: space-between;
             position: relative;
-            box-shadow: inset 0 0 50px var(--shadow-color);
+            box-shadow: inset 0 0 60px var(--shadow-color);
             
-            /* Artistic Luxury Gold Border Style */
+            /* Artistic Glorious Gold Border Style */
             border: 10px solid transparent;
-            border-image: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark), var(--gold-deep)) 1;
+            border-image: linear-gradient(135deg, var(--gold-light), var(--gold-glorious), var(--gold-dark), var(--gold-deep)) 1;
             overflow: hidden;
         }
 
@@ -68,7 +70,7 @@
             background: linear-gradient(
                 45deg,
                 transparent 45%,
-                rgba(255, 255, 255, 0.35) 50%,
+                rgba(254, 238, 185, 0.3) 50%,
                 transparent 55%
             );
             transform: rotate(30deg);
@@ -86,7 +88,7 @@
             position: absolute;
             width: 26px;
             height: 26px;
-            border: 3px solid var(--gold-dark);
+            border: 3px solid var(--gold-glorious);
             z-index: 2;
             pointer-events: none;
         }
@@ -98,7 +100,7 @@
         /* Header Styles */
         .header {
             text-align: center;
-            border-bottom: 2px solid var(--gold-primary);
+            border-bottom: 2px solid var(--gold-glorious);
             padding-bottom: 8px;
             margin-bottom: 6px;
             position: relative;
@@ -108,14 +110,14 @@
         .header-title {
             font-family: 'Amiri', serif;
             font-size: 2.1rem;
-            color: var(--gold-deep);
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8), 0 0 10px rgba(197, 160, 89, 0.5);
+            color: var(--gold-light);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 0 0 12px rgba(212, 175, 55, 0.6);
             margin-bottom: 2px;
         }
 
         .header-meta {
             font-size: 0.9rem;
-            color: #5D4037;
+            color: var(--gold-primary);
             font-weight: 600;
             display: flex;
             justify-content: center;
@@ -135,24 +137,24 @@
         .live-indicator {
             width: 7px;
             height: 7px;
-            background-color: #2E7D32;
+            background-color: #00FF66;
             border-radius: 50%;
-            box-shadow: 0 0 0 rgba(46, 125, 50, 0.4);
+            box-shadow: 0 0 0 rgba(0, 255, 102, 0.4);
             animation: pulseLive 1.5s infinite;
         }
 
         @keyframes pulseLive {
             0% {
                 transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+                box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7);
             }
             70% {
                 transform: scale(1);
-                box-shadow: 0 0 0 6px rgba(46, 125, 50, 0);
+                box-shadow: 0 0 0 6px rgba(0, 255, 102, 0);
             }
             100% {
                 transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(46, 125, 50, 0);
+                box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
             }
         }
 
@@ -161,10 +163,10 @@
             font-weight: 700;
             text-transform: lowercase;
             letter-spacing: 1.5px;
-            background: linear-gradient(180deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
+            background: linear-gradient(180deg, var(--gold-light), var(--gold-glorious), var(--gold-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.7), 1px 1px 2px rgba(62, 39, 35, 0.6);
+            text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.9);
         }
 
         /* Controls / Toggle */
@@ -179,13 +181,13 @@
 
         .nav-info {
             font-size: 0.9rem;
-            color: var(--gold-deep);
+            color: var(--gold-primary);
             font-weight: 700;
         }
 
         .btn-toggle {
-            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
-            color: #1A1A1A;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-glorious), var(--gold-dark));
+            color: #082114;
             border: 1px solid var(--gold-dark);
             padding: 5px 12px;
             font-family: 'Crimson Pro', serif;
@@ -211,15 +213,15 @@
         .verse-page {
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.35);
-            border: 1px dashed rgba(197, 160, 89, 0.5);
+            background: rgba(5, 25, 15, 0.45);
+            border: 1px dashed rgba(212, 175, 55, 0.4);
             border-radius: 8px;
             padding: 15px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.6s ease;
             backface-visibility: hidden;
         }
@@ -229,7 +231,7 @@
             width: 4px;
         }
         .verse-page::-webkit-scrollbar-thumb {
-            background: var(--gold-primary);
+            background: var(--gold-glorious);
             border-radius: 2px;
         }
 
@@ -245,7 +247,7 @@
         }
 
         .verse-item {
-            border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             padding-bottom: 12px;
         }
 
@@ -261,293 +263,7 @@
             line-height: 2.3;
             direction: rtl;
             margin-bottom: 8px;
+            text-shadow: 0 0 2px rgba(0,0,0,0.5);
         }
 
-        .translation-text {
-            font-size: 1rem;
-            color: var(--text-latin);
-            line-height: 1.5;
-            text-align: left;
-        }
-
-        /* Focus Mode Classes */
-        .focus-mode .arabic-text {
-            text-align: center;
-            font-size: 2.3rem;
-            margin-bottom: 0;
-        }
-
-        .focus-mode .translation-text {
-            display: none;
-        }
-
-        .focus-mode .verse-item {
-            text-align: center;
-            padding: 15px 0;
-        }
-
-        /* Navigation Footer Buttons */
-        .page-nav {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            margin-top: 8px;
-            z-index: 3;
-        }
-
-        .btn-nav {
-            flex: 1;
-            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
-            color: #FFF;
-            border: none;
-            padding: 9px;
-            font-family: 'Crimson Pro', serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
-            box-shadow: 0 3px 6px var(--shadow-color);
-        }
-
-        .btn-nav:active {
-            filter: brightness(0.9);
-        }
-
-        .status-message {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--gold-deep);
-            font-weight: 600;
-            margin: auto;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="app-card" id="appCard">
-        <!-- Corner Ornaments -->
-        <div class="corner-ornament corner-tl"></div>
-        <div class="corner-ornament corner-tr"></div>
-        <div class="corner-ornament corner-bl"></div>
-        <div class="corner-ornament corner-br"></div>
-
-        <!-- Header -->
-        <header class="header">
-            <h1 class="header-title">سورة يس</h1>
-            <div class="header-meta">
-                <span>Surah ke-36</span>
-                <span>•</span>
-                <span>Makkiyah</span>
-                <span>•</span>
-                <span>83 Ayat</span>
-            </div>
-            <!-- Developer tag with Live Streaming Dot Indicator -->
-            <div class="developer-container">
-                <div class="live-indicator"></div>
-                <div class="developer-tag">developer : fatur62</div>
-            </div>
-        </header>
-
-        <!-- Controls -->
-        <div class="controls">
-            <span class="nav-info" id="navInfo">Halaman 1 / -</span>
-            <button class="btn-toggle" id="toggleBtn" onclick="toggleTranslation()">Sembunyikan Terjemahan</button>
-        </div>
-
-        <!-- Page Flip Viewport -->
-        <main class="verse-viewport" id="verseViewport">
-            <div class="status-message">Memuat lembaran halaman...</div>
-        </main>
-
-        <!-- Navigation Buttons -->
-        <div class="page-nav">
-            <button class="btn-nav" onclick="prevPage()">❮ Sebelumnya</button>
-            <button class="btn-nav" onclick="nextPage()">Selanjutnya ❯</button>
-        </div>
-    </div>
-
-    <script>
-        let allAyat = [];
-        let pagesData = [];
-        let currentPageIndex = 0;
-        let showTranslation = true;
-        let audioCtx = null;
-        const AYAT_PER_HALAMAN = 5; // Jumlah ayat per lembar halaman
-
-        // Efek Suara Gesekan Kertas Realistis (Web Audio API)
-        function playPaperFlipSound() {
-            try {
-                if (!audioCtx) {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                }
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-
-                const bufferSize = audioCtx.sampleRate * 0.18;
-                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-                const data = buffer.getChannelData(0);
-                
-                for (let i = 0; i < bufferSize; i++) {
-                    data[i] = Math.random() * 2 - 1;
-                }
-
-                const noise = audioCtx.createBufferSource();
-                noise.buffer = buffer;
-
-                const filter = audioCtx.createBiquadFilter();
-                filter.type = 'bandpass';
-                filter.frequency.setValueAtTime(1200, audioCtx.currentTime);
-                filter.Q.setValueAtTime(3, audioCtx.currentTime);
-
-                const gainNode = audioCtx.createGain();
-                gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.18);
-
-                noise.connect(filter);
-                filter.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-
-                noise.start();
-            } catch (e) {
-                console.log('Audio Context error:', e);
-            }
-        }
-
-        // Fetching Data Surah Yasin (36)
-        async function loadSurahYasin() {
-            try {
-                const response = await fetch('https://equran.id/api/v2/surat/36');
-                if (!response.ok) throw new Error('Gagal mengambil data');
-                const jsonResult = await response.json();
-
-                if (!jsonResult || !jsonResult.data || !Array.isArray(jsonResult.data.ayat)) {
-                    throw new Error('Format data tidak valid');
-                }
-
-                allAyat = jsonResult.data.ayat;
-                
-                // Kelompokkan ayat menjadi beberapa halaman (chunking)
-                pagesData = [];
-                for (let i = 0; i < allAyat.length; i += AYAT_PER_HALAMAN) {
-                    pagesData.push(allAyat.slice(i, i + AYAT_PER_HALAMAN));
-                }
-
-                renderCurrentPage(0, 'right');
-            } catch (error) {
-                console.error(error);
-                document.getElementById('verseViewport').innerHTML = `<div class="status-message" style="color: #D32F2F;">Gagal memuat ayat. Periksa koneksi internet.</div>`;
-            }
-        }
-
-        // Render Halaman dengan Sekelompok Ayat
-        function renderCurrentPage(pageIndex, direction) {
-            if (pagesData.length === 0) return;
-            currentPageIndex = pageIndex;
-
-            const viewport = document.getElementById('verseViewport');
-            const navInfo = document.getElementById('navInfo');
-            navInfo.innerText = `Halaman ${currentPageIndex + 1} / ${pagesData.length}`;
-
-            const currentAyatList = pagesData[currentPageIndex];
-
-            const pageDiv = document.createElement('div');
-            pageDiv.className = `verse-page ${direction === 'right' ? 'flip-right' : 'flip-left'} ${showTranslation ? '' : 'focus-mode'}`;
-            pageDiv.id = 'activeVersePage';
-
-            let contentHTML = '';
-            currentAyatList.forEach(ayat => {
-                const nomorAyat = ayat.nomorAyat || '';
-                const teksArab = ayat.teksArab || '';
-                const teksIndonesia = ayat.teksIndonesia || '';
-
-                contentHTML += `
-                    <div class="verse-item">
-                        <div class="arabic-text">${teksArab} ﴿${nomorAyat}﴾</div>
-                        <div class="translation-text"><strong>${nomorAyat}.</strong> ${teksIndonesia}</div>
-                    </div>
-                `;
-            });
-
-            pageDiv.innerHTML = contentHTML;
-            viewport.innerHTML = '';
-            viewport.appendChild(pageDiv);
-
-            // Trigger reflow untuk animasi masuk
-            setTimeout(() => {
-                pageDiv.classList.remove('flip-right', 'flip-left');
-            }, 20);
-        }
-
-        function nextPage() {
-            if (currentPageIndex < pagesData.length - 1) {
-                playPaperFlipSound();
-                animateFlipAndSwitch(currentPageIndex + 1, 'right');
-            }
-        }
-
-        function prevPage() {
-            if (currentPageIndex > 0) {
-                playPaperFlipSound();
-                animateFlipAndSwitch(currentPageIndex - 1, 'left');
-            }
-        }
-
-        function animateFlipAndSwitch(newPageIndex, dir) {
-            const currentPage = document.getElementById('activeVersePage');
-            if (currentPage) {
-                currentPage.classList.add(dir === 'right' ? 'flip-left' : 'flip-right');
-            }
-            setTimeout(() => {
-                renderCurrentPage(newPageIndex, dir);
-            }, 300);
-        }
-
-        // Toggle Terjemahan & Focus Mode
-        function toggleTranslation() {
-            const appCard = document.getElementById('appCard');
-            const toggleBtn = document.getElementById('toggleBtn');
-            const activePage = document.getElementById('activeVersePage');
-            
-            showTranslation = !showTranslation;
-
-            if (showTranslation) {
-                appCard.classList.remove('focus-mode');
-                if (activePage) activePage.classList.remove('focus-mode');
-                toggleBtn.innerText = 'Sembunyikan Terjemahan';
-            } else {
-                appCard.classList.add('focus-mode');
-                if (activePage) activePage.classList.add('focus-mode');
-                toggleBtn.innerText = 'Tampilkan Terjemahan';
-            }
-        }
-
-        // Touch Swipe Gesture Support
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        document.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, false);
-
-        document.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, false);
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) {
-                nextPage();
-            }
-            if (touchEndX > touchStartX + 50) {
-                prevPage();
-            }
-        }
-
-        // Inisialisasi Aplikasi
-        document.addEventListener('DOMContentLoaded', () => {
-            loadSurahYasin();
-        });
-    </script>
-</body>
-</html>
+        .translation-text
