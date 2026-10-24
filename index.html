@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
@@ -18,8 +19,7 @@
             --gold-glorious: #D4AF37;
             --gold-dark: #9A7B1C;
             --gold-deep: #5E4A0F;
-            --shadow-color: rgba(3, 15, 9, 0.6);
-            --text-arabic: #FDF0CD;
+            --shadow-color: rgba(3, 15, 9, 0.7);
             --text-latin: #E0EADF;
         }
 
@@ -38,7 +38,6 @@
             font-family: 'Crimson Pro', serif;
         }
 
-        /* Fullscreen Mobile Viewport Application */
         .app-card {
             background-color: var(--bg-parchment-green);
             background-image: radial-gradient(#14482E 1.2px, transparent 1.2px);
@@ -46,7 +45,7 @@
             width: 100vw;
             height: 100vh;
             height: 100dvh;
-            padding: 15px 12px;
+            padding: 12px 10px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -57,7 +56,6 @@
             overflow: hidden;
         }
 
-        /* Shimmer / Light Glow Effect on Frame */
         .app-card::before {
             content: '';
             position: absolute;
@@ -65,12 +63,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 45%,
-                rgba(254, 238, 185, 0.3) 50%,
-                transparent 55%
-            );
+            background: linear-gradient(45deg, transparent 45%, rgba(254, 238, 185, 0.3) 50%, transparent 55%);
             transform: rotate(30deg);
             animation: shimmerEffect 6s infinite linear;
             pointer-events: none;
@@ -81,11 +74,10 @@
             100% { transform: translateY(100%) rotate(30deg); }
         }
 
-        /* Corner Arabesque Ornaments */
         .corner-ornament {
             position: absolute;
-            width: 26px;
-            height: 26px;
+            width: 24px;
+            height: 24px;
             border: 3px solid var(--gold-glorious);
             z-index: 2;
             pointer-events: none;
@@ -95,11 +87,10 @@
         .corner-bl { bottom: 4px; left: 4px; border-right: none; border-top: none; }
         .corner-br { bottom: 4px; right: 4px; border-left: none; border-top: none; }
 
-        /* Header Styles */
         .header {
             text-align: center;
             border-bottom: 2px solid var(--gold-glorious);
-            padding-bottom: 8px;
+            padding-bottom: 6px;
             margin-bottom: 6px;
             position: relative;
             z-index: 3;
@@ -107,23 +98,22 @@
 
         .header-title {
             font-family: 'Amiri', serif;
-            font-size: 2.1rem;
+            font-size: 1.8rem;
             color: var(--gold-light);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 0 0 12px rgba(212, 175, 55, 0.6);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 0 0 10px rgba(212, 175, 55, 0.6);
             margin-bottom: 2px;
         }
 
         .header-meta {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--gold-primary);
             font-weight: 600;
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 4px;
+            gap: 8px;
+            margin-bottom: 3px;
         }
 
-        /* Developer Tag with Live Streaming Indicator */
         .developer-container {
             display: flex;
             align-items: center;
@@ -142,22 +132,13 @@
         }
 
         @keyframes pulseLive {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7);
-            }
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 6px rgba(0, 255, 102, 0);
-            }
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
-            }
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 255, 102, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 102, 0); }
         }
 
         .developer-tag {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: lowercase;
             letter-spacing: 1.5px;
@@ -167,36 +148,85 @@
             text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.9);
         }
 
-        /* Controls / Toggle */
-        .controls {
+        /* Panel Kontrol Ramah Lansia */
+        .lansia-controls {
+            background: rgba(3, 15, 9, 0.8);
+            border: 1px solid var(--gold-glorious);
+            border-radius: 6px;
+            padding: 6px 8px;
+            margin-bottom: 6px;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .control-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
-            z-index: 3;
-            padding: 0 4px;
+            gap: 6px;
         }
 
-        .nav-info {
-            font-size: 0.9rem;
-            color: var(--gold-primary);
+        .control-label {
+            font-size: 0.8rem;
+            color: var(--gold-light);
             font-weight: 700;
         }
 
-        .btn-toggle {
-            background: linear-gradient(135deg, var(--gold-light), var(--gold-glorious), var(--gold-dark));
-            color: #082114;
-            border: 1px solid var(--gold-dark);
-            padding: 5px 12px;
+        .font-size-buttons {
+            display: flex;
+            gap: 4px;
+        }
+
+        .btn-size {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--gold-glorious);
+            color: var(--gold-primary);
+            padding: 3px 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .btn-size.active {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-glorious));
+            color: #051A10;
+        }
+
+        .btn-audio {
+            flex: 1;
+            background: linear-gradient(135deg, var(--gold-glorious), var(--gold-dark));
+            color: #051A10;
+            border: none;
+            padding: 6px;
             font-family: 'Crimson Pro', serif;
             font-size: 0.85rem;
             font-weight: 700;
             border-radius: 4px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
             box-shadow: 0 2px 4px var(--shadow-color);
         }
 
-        /* Page Flip / Curl Container */
+        .btn-toggle-tr {
+            background: rgba(11, 43, 27, 0.9);
+            border: 1px solid var(--gold-glorious);
+            color: var(--gold-light);
+            padding: 6px 10px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Viewport Lembaran */
         .verse-viewport {
             flex-grow: 1;
             position: relative;
@@ -205,73 +235,69 @@
             align-items: center;
             justify-content: center;
             z-index: 3;
-            perspective: 1200px;
         }
 
         .verse-page {
             width: 100%;
             height: 100%;
-            background: rgba(5, 25, 15, 0.45);
-            border: 1px dashed rgba(212, 175, 55, 0.4);
+            background: rgba(5, 25, 15, 0.55);
+            border: 1px dashed rgba(212, 175, 55, 0.45);
             border-radius: 8px;
-            padding: 15px;
+            padding: 12px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.6s ease;
-            backface-visibility: hidden;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.35);
         }
 
         .verse-page::-webkit-scrollbar {
-            width: 4px;
+            width: 5px;
         }
         .verse-page::-webkit-scrollbar-thumb {
             background: var(--gold-glorious);
-            border-radius: 2px;
-        }
-
-        .flip-left {
-            transform: rotateY(-90deg) translateX(-50px);
-            opacity: 0;
-        }
-
-        .flip-right {
-            transform: rotateY(90deg) translateX(50px);
-            opacity: 0;
+            border-radius: 3px;
         }
 
         .verse-item {
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            padding-bottom: 10px;
         }
 
         .verse-item:last-child {
             border-bottom: none;
         }
 
+        /* Teks Arab 3D Gold Mewah dengan ukuran dinamis untuk lansia */
         .arabic-text {
             font-family: 'Amiri', serif;
-            font-size: 2rem;
-            color: var(--text-arabic);
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFF5C0 0%, #F8E49A 30%, #D4AF37 70%, #9A7B1C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.85), 0 0 12px rgba(212, 175, 55, 0.3);
             text-align: right;
-            line-height: 2.3;
+            line-height: 2.5;
             direction: rtl;
-            margin-bottom: 8px;
-            text-shadow: 0 0 2px rgba(0,0,0,0.5);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
         }
 
+        /* Ukuran Font Dinamis */
+        .size-sedang { font-size: 2rem; }
+        .size-besar { font-size: 2.5rem; }
+        .size-sangat-besar { font-size: 3.1rem; line-height: 2.8; }
+
         .translation-text {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-latin);
-            line-height: 1.5;
+            line-height: 1.4;
             text-align: left;
+            font-weight: 500;
         }
 
         .focus-mode .arabic-text {
             text-align: center;
-            font-size: 2.3rem;
             margin-bottom: 0;
         }
 
@@ -281,15 +307,25 @@
 
         .focus-mode .verse-item {
             text-align: center;
-            padding: 15px 0;
+            padding: 12px 0;
         }
 
+        /* Navigasi Bawah */
         .page-nav {
             display: flex;
             justify-content: space-between;
-            gap: 12px;
-            margin-top: 8px;
+            gap: 10px;
+            margin-top: 6px;
             z-index: 3;
+            align-items: center;
+        }
+
+        .nav-info {
+            font-size: 0.85rem;
+            color: var(--gold-primary);
+            font-weight: 700;
+            text-align: center;
+            min-width: 90px;
         }
 
         .btn-nav {
@@ -297,22 +333,18 @@
             background: linear-gradient(135deg, var(--gold-glorious), var(--gold-dark));
             color: #051A10;
             border: none;
-            padding: 9px;
+            padding: 8px;
             font-family: 'Crimson Pro', serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 700;
             border-radius: 6px;
             cursor: pointer;
             box-shadow: 0 3px 6px var(--shadow-color);
         }
 
-        .btn-nav:active {
-            filter: brightness(0.9);
-        }
-
         .status-message {
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--gold-primary);
             font-weight: 600;
             margin: auto;
@@ -323,21 +355,15 @@
 <body>
 
     <div class="app-card" id="appCard">
-        <!-- Corner Ornaments -->
         <div class="corner-ornament corner-tl"></div>
         <div class="corner-ornament corner-tr"></div>
         <div class="corner-ornament corner-bl"></div>
         <div class="corner-ornament corner-br"></div>
 
-        <!-- Header -->
         <header class="header">
             <h1 class="header-title">سورة يس</h1>
             <div class="header-meta">
-                <span>Surah ke-36</span>
-                <span>•</span>
-                <span>Makkiyah</span>
-                <span>•</span>
-                <span>83 Ayat</span>
+                <span>Surah ke-36 • 83 Ayat</span>
             </div>
             <div class="developer-container">
                 <div class="live-indicator"></div>
@@ -345,80 +371,51 @@
             </div>
         </header>
 
-        <!-- Controls -->
-        <div class="controls">
-            <span class="nav-info" id="navInfo">Halaman 1 / -</span>
-            <button class="btn-toggle" id="toggleBtn" onclick="toggleTranslation()">Sembunyikan Terjemahan</button>
+        <!-- Panel Kontrol Lansia Terbuka Langsung -->
+        <div class="lansia-controls">
+            <div class="control-row">
+                <span class="control-label"><i class="fa-solid fa-text-height"></i> Ukuran Huruf:</span>
+                <div class="font-size-buttons">
+                    <button class="btn-size" onclick="changeFontSize('sedang')">Sedang</button>
+                    <button class="btn-size active" onclick="changeFontSize('besar')">Besar</button>
+                    <button class="btn-size" onclick="changeFontSize('sangat-besar')">Sangat Besar</button>
+                </div>
+            </div>
+            <div class="control-row">
+                <button class="btn-audio" id="audioBtn" onclick="toggleAudio()"><i class="fa-solid fa-volume-high"></i> Putar Audio Murotal</button>
+                <button class="btn-toggle-tr" id="toggleTrBtn" onclick="toggleTranslation()">Sembunyi Arti</button>
+            </div>
         </div>
 
-        <!-- Page Flip Viewport -->
+        <!-- Viewport -->
         <main class="verse-viewport" id="verseViewport">
             <div class="status-message" id="statusMessage">Memuat lembaran Surah Yasin...</div>
         </main>
 
-        <!-- Navigation Buttons -->
+        <!-- Footer Nav -->
         <div class="page-nav">
             <button class="btn-nav" onclick="prevPage()">❮ Sebelumnya</button>
+            <span class="nav-info" id="navInfo">Hal 1 / -</span>
             <button class="btn-nav" onclick="nextPage()">Selanjutnya ❯</button>
         </div>
     </div>
+
+    <!-- Audio Murotal Yasin (Surah 36) -->
+    <audio id="murotalAudio" src="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/36.mp3" preload="none"></audio>
 
     <script>
         let allAyat = [];
         let pagesData = [];
         let currentPageIndex = 0;
         let showTranslation = true;
-        let audioCtx = null;
-        const AYAT_PER_HALAMAN = 5;
-
-        function playPaperFlipSound() {
-            try {
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                if (!AudioContext) return;
-                
-                if (!audioCtx) {
-                    audioCtx = new AudioContext();
-                }
-                if (audioCtx.state === 'suspended') {
-                    audioCtx.resume();
-                }
-
-                const bufferSize = audioCtx.sampleRate * 0.15;
-                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-                const data = buffer.getChannelData(0);
-                
-                for (let i = 0; i < bufferSize; i++) {
-                    data[i] = Math.random() * 2 - 1;
-                }
-
-                const noise = audioCtx.createBufferSource();
-                noise.buffer = buffer;
-
-                const filter = audioCtx.createBiquadFilter();
-                filter.type = 'bandpass';
-                filter.frequency.setValueAtTime(1000, audioCtx.currentTime);
-                filter.Q.setValueAtTime(2, audioCtx.currentTime);
-
-                const gainNode = audioCtx.createGain();
-                gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
-
-                noise.connect(filter);
-                filter.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-
-                noise.start();
-            } catch (e) {
-                // Ignore audio autoplay restrictions
-            }
-        }
+        let currentFontSize = 'size-besar'; 
+        const AYAT_PER_HALAMAN = 4;
 
         async function fetchSurahData() {
-            // Primary API
             try {
-                const res = await fetch('https://equran.id/api/v2/surat/36');
-                if (res.ok) {
-                    const json = await res.json();
+                const resCorrect = await fetch('https://equran.id/api/v2/surat/36');
+                if (resCorrect.ok) {
+                    const json = await resCorrect.json();
                     if (json && json.data && Array.isArray(json.data.ayat)) {
                         return json.data.ayat.map(item => ({
                             nomorAyat: item.nomorAyat,
@@ -427,11 +424,8 @@
                         }));
                     }
                 }
-            } catch (err) {
-                console.warn('API Utama gagal, mencoba API Cadangan...', err);
-            }
+            } catch (err) { console.warn('API Utama gagal'); }
 
-            // Fallback API (Al-Quran Cloud)
             try {
                 const resFallback = await fetch('https://api.alquran.cloud/v1/surah/36/editions/quran-uthmani,id.indonesian');
                 if (resFallback.ok) {
@@ -446,61 +440,44 @@
                         }));
                     }
                 }
-            } catch (err) {
-                console.error('API Cadangan juga gagal:', err);
-            }
+            } catch (err) { console.error('API Cadangan gagal'); }
 
-            throw new Error('Gagal mengambil data ayat dari seluruh server');
+            throw new Error('Gagal mengambil data ayat');
         }
 
         async function initSurahYasin() {
             const statusMsg = document.getElementById('statusMessage');
             try {
                 const ayatData = await fetchSurahData();
-                if (!ayatData || ayatData.length === 0) {
-                    throw new Error('Data ayat kosong');
-                }
-
                 allAyat = ayatData;
                 pagesData = [];
                 for (let i = 0; i < allAyat.length; i += AYAT_PER_HALAMAN) {
                     pagesData.push(allAyat.slice(i, i + AYAT_PER_HALAMAN));
                 }
-
-                renderCurrentPage(0, 'right');
+                renderCurrentPage(0);
             } catch (error) {
-                console.error(error);
-                if (statusMsg) {
-                    statusMsg.style.color = '#FF6B6B';
-                    statusMsg.innerText = 'Gagal memuat ayat. Silakan periksa koneksi internet atau muat ulang halaman.';
-                }
+                if (statusMsg) statusMsg.innerText = 'Gagal memuat ayat. Periksa koneksi internet.';
             }
         }
 
-        function renderCurrentPage(pageIndex, direction) {
+        function renderCurrentPage(pageIndex) {
             if (pagesData.length === 0) return;
             currentPageIndex = pageIndex;
 
             const viewport = document.getElementById('verseViewport');
-            const navInfo = document.getElementById('navInfo');
-            navInfo.innerText = `Halaman ${currentPageIndex + 1} / ${pagesData.length}`;
+            document.getElementById('navInfo').innerText = `Hal ${currentPageIndex + 1} / ${pagesData.length}`;
 
             const currentAyatList = pagesData[currentPageIndex];
-
             const pageDiv = document.createElement('div');
-            pageDiv.className = `verse-page ${direction === 'right' ? 'flip-right' : 'flip-left'} ${showTranslation ? '' : 'focus-mode'}`;
+            pageDiv.className = `verse-page ${showTranslation ? '' : 'focus-mode'}`;
             pageDiv.id = 'activeVersePage';
 
             let contentHTML = '';
             currentAyatList.forEach(ayat => {
-                const nomorAyat = ayat.nomorAyat || '';
-                const teksArab = ayat.teksArab || '';
-                const teksIndonesia = ayat.teksIndonesia || '';
-
                 contentHTML += `
                     <div class="verse-item">
-                        <div class="arabic-text">${teksArab} ﴿${nomorAyat}﴾</div>
-                        <div class="translation-text"><strong>${nomorAyat}.</strong> ${teksIndonesia}</div>
+                        <div class="arabic-text ${currentFontSize}">${ayat.teksArab} ﴿${ayat.nomorAyat}﴾</div>
+                        <div class="translation-text"><strong>${ayat.nomorAyat}.</strong> ${ayat.teksIndonesia}</div>
                     </div>
                 `;
             });
@@ -508,78 +485,69 @@
             pageDiv.innerHTML = contentHTML;
             viewport.innerHTML = '';
             viewport.appendChild(pageDiv);
-
-            setTimeout(() => {
-                pageDiv.classList.remove('flip-right', 'flip-left');
-            }, 20);
         }
 
         function nextPage() {
             if (currentPageIndex < pagesData.length - 1) {
-                playPaperFlipSound();
-                animateFlipAndSwitch(currentPageIndex + 1, 'right');
+                renderCurrentPage(currentPageIndex + 1);
             }
         }
 
         function prevPage() {
             if (currentPageIndex > 0) {
-                playPaperFlipSound();
-                animateFlipAndSwitch(currentPageIndex - 1, 'left');
+                renderCurrentPage(currentPageIndex - 1);
             }
         }
 
-        function animateFlipAndSwitch(newPageIndex, dir) {
-            const currentPage = document.getElementById('activeVersePage');
-            if (currentPage) {
-                currentPage.classList.add(dir === 'right' ? 'flip-left' : 'flip-right');
+        function changeFontSize(size) {
+            currentFontSize = size === 'sedang' ? 'size-sedang' : (size === 'sangat-besar' ? 'size-sangat-besar' : 'size-besar');
+            
+            document.querySelectorAll('.btn-size').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const activePage = document.getElementById('activeVersePage');
+            if (activePage) {
+                activePage.querySelectorAll('.arabic-text').forEach(el => {
+                    el.className = `arabic-text ${currentFontSize}`;
+                });
             }
-            setTimeout(() => {
-                renderCurrentPage(newPageIndex, dir);
-            }, 300);
         }
 
         function toggleTranslation() {
-            const appCard = document.getElementById('appCard');
-            const toggleBtn = document.getElementById('toggleBtn');
-            const activePage = document.getElementById('activeVersePage');
-            
             showTranslation = !showTranslation;
+            const appCard = document.getElementById('appCard');
+            const activePage = document.getElementById('activeVersePage');
+            const btn = document.getElementById('toggleTrBtn');
 
             if (showTranslation) {
                 appCard.classList.remove('focus-mode');
                 if (activePage) activePage.classList.remove('focus-mode');
-                toggleBtn.innerText = 'Sembunyikan Terjemahan';
+                btn.innerText = 'Sembunyi Arti';
             } else {
                 appCard.classList.add('focus-mode');
                 if (activePage) activePage.classList.add('focus-mode');
-                toggleBtn.innerText = 'Tampilkan Terjemahan';
+                btn.innerText = 'Tampil Arti';
             }
         }
 
-        let touchStartX = 0;
-        let touchEndX = 0;
+        function toggleAudio() {
+            const audio = document.getElementById('murotalAudio');
+            const btn = document.getElementById('audioBtn');
 
-        document.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, false);
-
-        document.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, false);
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) {
-                nextPage();
-            }
-            if (touchEndX > touchStartX + 50) {
-                prevPage();
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = `<i class="fa-solid fa-pause"></i> Jeda Audio`;
+                btn.style.background = 'linear-gradient(135deg, #FF6B6B, #C92A2A)';
+                btn.style.color = '#FFFFFF';
+            } else {
+                audio.pause();
+                btn.innerHTML = `<i class="fa-solid fa-volume-high"></i> Putar Audio Murotal`;
+                btn.style.background = 'linear-gradient(135deg, var(--gold-glorious), var(--gold-dark))';
+                btn.style.color = '#051A10';
             }
         }
 
-        window.addEventListener('load', () => {
-            initSurahYasin();
-        });
+        window.addEventListener('load', () => { initSurahYasin(); });
     </script>
 </body>
 </html>
